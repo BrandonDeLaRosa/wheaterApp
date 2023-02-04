@@ -3,6 +3,15 @@ import { useState } from 'react'
 import axios from 'axios'
 import './App.css'
 
+import clear from './assets/sun.jpg'
+import cloud from './assets/cloud.gif'
+import clouds from './assets/clouds.jpg'
+import drizzel from './assets/drizzling.gif'
+import rain from './assets/rain.gif'
+import thunder from './assets/thunder.gif'
+import snow from './assets/snow.gif'
+import landscape from './assets/landscape.gif'
+
 function App (){
 
   const [weather, setWeather] = useState({})
@@ -25,9 +34,30 @@ function App (){
   },[])
   console.log(weather);
 
+if (weather.weather?.[0].main === "Clear"){
+  document.body.style = `background-image: url(${clear})`;
+}else if(weather.weather?.[0].main === "Clouds"){
+  document.body.style = `background-image: url(${cloud})`;
+}else if (weather.weather?.[0].main === "Mist"){
+  document.body.style = `background-image: url(${clouds})`;
+}else if (weather.weather?.[0].main === "Drizzle"){
+  document.body.style = `background-image: url(${drizzel})`;
+}else if (weather.weather?.[0].main === "Rain"){
+  document.body.style = `background-image: url(${rain})`;
+}else if (weather.weather?.[0].main === "Clear"){
+  document.body.style = `background-image: url(${clouds})`;
+}else if (weather.weather?.[0].main === "Thunderstorm"){
+  document.body.style = `background-image: url(${thunder})`;
+}else if (weather.weather?.[0].main === "Clear"){
+  document.body.style = `background-image: url(${clouds})`;
+}else if (weather.weather?.[0].main === "Snow"){
+  document.body.style = `background-image: url(${snow})`;
+}else {
+  document.body.style = `background-image: url(${landscape})`;
+}
+
+
   return(
-    // <body> <img src={cloud} alt="" />
-      // <div className='background'>  <img src={cloud} alt="" />
         <div className='cardContent'>
           <h1>Weather APP</h1>
 
@@ -46,9 +76,6 @@ function App (){
           <button onClick={celFar}>Change to {isCelcius ? '°F' : '°C'}</button>
           {/* <button onClick={() => setIsCelcius(!isCelcius)}>Change to {isCelcius ? '°F' : '°C'}</button> */}
         </div>
-      // </div>  
-    // </body>
-
   )
 
 }
