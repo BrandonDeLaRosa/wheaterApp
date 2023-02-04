@@ -4,7 +4,7 @@ import axios from 'axios'
 import './App.css'
 
 import clear from './assets/sun.jpg'
-import cloud from './assets/cloud.gif'
+import cloud from './assets/Cloud.gif'
 import clouds from './assets/clouds.jpg'
 import drizzel from './assets/drizzling.gif'
 import rain from './assets/rain.gif'
